@@ -21,7 +21,7 @@ node {
         sh "docker push ${imageName}"
 
     stage('deploying') {
-    withKubeConfig([credentialsId: 'kenzan_kubeconfig', serverUrl: 'https://172.26.17.171:6443']) {
+    withKubeConfig([credentialsId: 'k8s-surya-ctl1', serverUrl: 'https://172.26.17.171:6443']) {
       sh 'kubectl delete -f "applications/${appName}/k8s/*.yaml"'
       sh 'kubectl create -f "applications/${appName}/k8s/*.yaml"'
     }
