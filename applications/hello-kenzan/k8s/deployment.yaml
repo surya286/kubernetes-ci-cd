@@ -30,7 +30,8 @@ spec:
         tier: hello-kenzan
     spec:
       containers:
-      - image: 127.0.0.1:32163/hello-kenzan:$BUILD_TAG
+      - image: registry.opsramp.net:8081/hello-kenzan:latest
+        imagePullPolicy: Always
         name: hello-kenzan
         ports:
         - containerPort: 80
